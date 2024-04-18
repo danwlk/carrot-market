@@ -6,6 +6,7 @@ import {
     AppFormField,
     FormSubmitButton,
     AppFormPicker,
+    AppFormImageInputList,
 } from '../../components/AppForm';
 import Screen from '../../components/Screen/Screen';
 import Button from '../../components/Button/Button';
@@ -18,6 +19,7 @@ const validationSchema = Yup.object().shape({
     price: Yup.number().required('Price is required').min(0),
     category: Yup.object().required('Category is required'),
     description: Yup.string().nullable().required('Description is required'),
+    imageUris: Yup.array().min(1, 'At least one image is required'),
 });
 
 const categories = [
@@ -37,7 +39,6 @@ const categories = [
     { label: 'Other', icon: 'dropbox', color: '#7c8ca1', value: 9 },
 ];
 
-
 const PostItemScreen = () => {
     return (
         <Screen style={styles.screen}>
@@ -47,10 +48,13 @@ const PostItemScreen = () => {
                     price: null,
                     category: null,
                     description: '',
+                    imageUris: [],
                 }}
                 onSubmit={() => console.log('posting item')}
                 validationSchema={validationSchema}
             >
+                <AppFormImageInputList name="imageUris" />
+
                 <AppFormField
                     name="title"
                     placeholder="Title"

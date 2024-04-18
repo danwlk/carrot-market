@@ -28,8 +28,13 @@ const ListItem = ({
                     <View style={[styles.container, style]}>
                         <Image source={image} style={styles.pfp} />
                         <View style={styles.title}>
-                            <AppText numberOfLines={numberOfLines}>{title}</AppText>
-                            <AppText numberOfLines={numberOfLines} style={styles.subTitle}>
+                            <AppText numberOfLines={numberOfLines}>
+                                {title}
+                            </AppText>
+                            <AppText
+                                numberOfLines={numberOfLines}
+                                style={styles.subTitle}
+                            >
                                 {subTitle}
                             </AppText>
                         </View>

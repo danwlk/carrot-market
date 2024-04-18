@@ -1,11 +1,61 @@
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, FlatList, Alert } from 'react-native';
 
-function ImageInputList({ imageUris, onAddImage, onRemoveImage }) {
-    return <View style={styles.container}></View>;
-}
+import ImageInput from './ImageInput';
+
+const ImageInputList = ({ imageUris, onAddImage, onRemoveImage }) => {
+    const showConfirmationAlert = (uri) => {
+        Alert.alert(
+            'Delete Image',
+            'Are you sure you want to delete this image?',
+            [
+                {
+                    text: 'Cancel',
+                    onPress: () => console.log('cancelled'),
+                    style: 'cancel',
+                },
+                {
+                    text: 'Yes',
+                    onPress: () => onRemoveImage(uri),
+                    style: 'destructive',
+                },
+            ]
+        );
+    };
+
+    return (
+        <View style={styles.container}>
+            <FlatList
+                data={imageUris}
+                keyExtractor={(item) => item}
+                renderItem={({ item }) => {
+                    return (
+                        <ImageInput
+                            imageUri={item}
+                            onPress={() =>
+                                showConfirmationAlert(item)
+                            }
+                        />
+                    );
+                }}
+                horizontal
+                ListFooterComponent={() => {
+                    return (
+                        <ImageInput
+                            onChangeImage={(uri) => {
+                                onAddImage(uri);
+                            }}
+                        />
+                    );
+                }}
+            />
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
-    container: {},
+    container: {
+        flexDirection: 'row',
+    },
 });
 
 export default ImageInputList;

@@ -4,7 +4,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import colors from '../../config/colors';
 
-function ImageInput({ imageUri, onChangeImage }) {
+function ImageInput({ imageUri, onChangeImage, onPress }) {
     const requestPermissions = async () => {
         const result = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
@@ -36,6 +36,8 @@ function ImageInput({ imageUri, onChangeImage }) {
                 if (!imageUri) {
                     requestPermissions();
                     pickImage();
+                } else {
+                    onPress();
                 }
             }}
             activeOpacity={0.7}
@@ -57,11 +59,14 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         backgroundColor: colors.light,
-        borderRadius: 30,
-        height: 150,
+        borderRadius: 20,
+        height: 100,
         justifyContent: 'center',
+        margin: 10,
+        marginLeft: 0,
+        marginTop: 20,
         overflow: 'hidden',
-        width: 150,
+        width: 100,
     },
 
     image: {
