@@ -20,7 +20,7 @@ const listings = [
     },
 ];
 
-const MainScreen = () => {
+const MainScreen = ({ navigation }) => {
     return (
         <Screen style={styles.screen}>
             <FlatList
@@ -32,6 +32,13 @@ const MainScreen = () => {
                             title={item.title}
                             subTitle={'$' + item.price}
                             image={item.image}
+                            onPress={() =>
+                                navigation.navigate('ViewProductScreen', {
+                                    title: item.title,
+                                    subTitle: `$${item.price}`,
+                                    image: item.image,
+                                })
+                            }
                         />
                     );
                 }}

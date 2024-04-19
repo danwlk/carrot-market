@@ -17,7 +17,7 @@ const validationSchema = Yup.object().shape({
     password: Yup.string().required().label('Password'),
 });
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
     return (
         <Screen style={styles.container}>
             <Image
@@ -59,7 +59,7 @@ const LoginScreen = () => {
                     color={colors.secondary}
                     textColor={colors.white}
                     style={styles.registerButton}
-                    onPress={() => console.log('code to go to register screen')}
+                    onPress={() => navigation.replace('RegisterScreen')}
                 />
             </AppForm>
         </Screen>

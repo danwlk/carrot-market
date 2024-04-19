@@ -1,20 +1,20 @@
-import { View, Image, StatusBar, Text } from 'react-native';
+import { View, Image, StatusBar } from 'react-native';
 
 import ListItem from '../../components/ListItem/ListItem';
 import AppText from '../../components/AppText/AppText';
 import styles from './ViewProductScreenStyles';
 
-const ViewProductScreen = () => {
+const ViewProductScreen = ({ route }) => {
     return (
         <View style={styles.container}>
             <StatusBar barStyle="black" />
             <Image
-                source={require('../../assets/jacket.jpg')}
+                source={route.params.image}
                 style={styles.image}
             />
             <View style={styles.content}>
-                <AppText style={styles.title}>Red jacket for sale</AppText>
-                <AppText style={styles.price}>$100</AppText>
+                <AppText style={styles.title}>{route.params.title}</AppText>
+                <AppText style={styles.price}>{route.params.subTitle}</AppText>
             </View>
 
             <ListItem

@@ -1,4 +1,4 @@
-import { Image, ImageBackground, View, Text, StatusBar } from 'react-native';
+import { Image, ImageBackground, View, StatusBar } from 'react-native';
 
 import styles from './WelcomeScreenStyles';
 import colors from '../../config/colors';
@@ -6,7 +6,7 @@ import colors from '../../config/colors';
 import AppText from '../../components/AppText/AppText';
 import Button from '../../components/Button/Button';
 
-const WelcomeScreen = () => {
+const WelcomeScreen = ({ navigation }) => {
     return (
         <ImageBackground
             source={require('../../assets/background.jpg')}
@@ -26,13 +26,13 @@ const WelcomeScreen = () => {
                 title="login"
                 color={colors.primary}
                 style={styles.button}
-                onPress={() => console.log('Login')}
+                onPress={() => navigation.navigate('LoginScreen')}
             />
             <Button
                 title="register"
                 color={colors.secondary}
                 style={styles.button}
-                onPress={() => console.log('Register')}
+                onPress={() => navigation.navigate('RegisterScreen')}
             />
         </ImageBackground>
     );

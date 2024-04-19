@@ -14,7 +14,7 @@ const currentUser = {
     email: 'programmingwithmosh@gmail.com',
 };
 
-const AccountScreen = () => {
+const AccountScreen = ({ navigation }) => {
     return (
         <Screen style={styles.screen}>
             <ListItem
@@ -39,17 +39,19 @@ const AccountScreen = () => {
                     iconColor={colors.white}
                     iconBackground={colors.secondary}
                     text="My Messages"
-                    onPress={() => console.log('my messages')}
+                    onPress={() => navigation.navigate('MessagesScreen')}
                 />
             </View>
 
-            <ButtonWithIcon
-                iconName="logout"
-                iconColor={colors.white}
-                iconBackground="#ffe66d"
-                text="Log Out"
-                onPress={() => console.log('logout')}
-            />
+            <View style={styles.buttons}>
+                <ButtonWithIcon
+                    iconName="logout"
+                    iconColor={colors.white}
+                    iconBackground="#ffe66d"
+                    text="Log Out"
+                    onPress={() => console.log('logout')}
+                />
+            </View>
         </Screen>
     );
 };

@@ -1,8 +1,10 @@
 import { StyleSheet } from 'react-native';
+import colors from '../../config/colors';
 
 const styles = StyleSheet.create({
     screen: {
         paddingHorizontal: 20,
+        // backgroundColor: colors.white
     },
 
     postButton: {
