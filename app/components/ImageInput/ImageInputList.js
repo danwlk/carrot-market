@@ -2,7 +2,7 @@ import { View, StyleSheet, FlatList, Alert } from 'react-native';
 
 import ImageInput from './ImageInput';
 
-const ImageInputList = ({ imageUris, onAddImage, onRemoveImage }) => {
+const ImageInputList = ({ imageUris, onAddImage, onRemoveImage, style }) => {
     const showConfirmationAlert = (uri) => {
         Alert.alert(
             'Delete Image',
@@ -23,7 +23,7 @@ const ImageInputList = ({ imageUris, onAddImage, onRemoveImage }) => {
     };
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, style]}>
             <FlatList
                 data={imageUris}
                 keyExtractor={(item) => item}

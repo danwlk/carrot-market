@@ -11,6 +11,10 @@ const styles = StyleSheet.create({
     backButton: {
         marginTop: 20,
     },
+
+    appFormImageInputList: {
+        marginTop: 20,
+    },
 });
 
 export default styles;

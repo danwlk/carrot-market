@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useLocation } from '../../hooks';
 import * as Yup from 'yup';
 
 import {
@@ -40,6 +40,8 @@ const categories = [
 ];
 
 const PostItemScreen = () => {
+    const location = useLocation();
+
     return (
         <Screen style={styles.screen}>
             <AppForm
@@ -50,22 +52,27 @@ const PostItemScreen = () => {
                     description: '',
                     imageUris: [],
                 }}
-                onSubmit={() => console.log('posting item')}
+                onSubmit={() => console.log(location)}
                 validationSchema={validationSchema}
             >
-                <AppFormImageInputList name="imageUris" />
+                <AppFormImageInputList
+                    name="imageUris"
+                    style={styles.appFormImageInputList}
+                />
 
                 <AppFormField
                     name="title"
                     placeholder="Title"
                     autoCapitalize="words"
                     maxLength={255}
+                    returnKeyType="done"
                 />
                 <AppFormField
                     name="price"
                     placeholder="Price"
                     keyboardType="numeric"
                     width="40%"
+                    returnKeyType="done"
                 />
                 <AppFormPicker
                     name="category"

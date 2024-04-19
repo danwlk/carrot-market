@@ -3,7 +3,7 @@ import { useFormikContext } from 'formik';
 import ImageInputList from '../ImageInput/ImageInputList';
 import ErrorMessage from './ErrorMessage';
 
-const AppFormImageInputList = ({ name }) => {
+const AppFormImageInputList = ({ name, style }) => {
     const { values, setFieldValue, errors, touched } = useFormikContext();
 
     const addImage = (uri) => {
@@ -23,6 +23,7 @@ const AppFormImageInputList = ({ name }) => {
                 imageUris={values[name]}
                 onAddImage={(uri) => addImage(uri)}
                 onRemoveImage={(uri) => removeImage(uri)}
+                style={style}
             />
             <ErrorMessage error={errors[name]} visible={touched[name]} />
         </>

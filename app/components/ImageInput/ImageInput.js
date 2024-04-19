@@ -17,7 +17,10 @@ function ImageInput({ imageUri, onChangeImage, onPress }) {
 
     const pickImage = async () => {
         try {
-            const result = await ImagePicker.launchImageLibraryAsync();
+            const result = await ImagePicker.launchImageLibraryAsync({
+                mediaTypes: ImagePicker.MediaTypeOptions.Images,
+                quality: 0.5,
+            });
             if (!result.canceled) {
                 onChangeImage(result.assets[0].uri);
             }
@@ -29,17 +32,19 @@ function ImageInput({ imageUri, onChangeImage, onPress }) {
         }
     };
 
+    const handlePress = () => {
+        if (!imageUri) {
+            requestPermissions();
+            pickImage();
+        } else {
+            onPress();
+        }
+    };
+
     return (
         <TouchableOpacity
             style={styles.container}
-            onPress={() => {
-                if (!imageUri) {
-                    requestPermissions();
-                    pickImage();
-                } else {
-                    onPress();
-                }
-            }}
+            onPress={handlePress}
             activeOpacity={0.7}
         >
             {!imageUri ? (
@@ -63,8 +68,8 @@ const styles = StyleSheet.create({
         height: 100,
         justifyContent: 'center',
         margin: 10,
+        marginTop: 0,
         marginLeft: 0,
-        marginTop: 20,
         overflow: 'hidden',
         width: 100,
     },
