@@ -2,7 +2,7 @@ import { View, TouchableOpacity, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 
-import colors from '../../config/colors';
+import colors from '../config/colors';
 
 const PostTabIcon = () => {
     const navigation = useNavigation();

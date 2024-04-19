@@ -1,4 +1,4 @@
-import { StatusBar, View } from 'react-native';
+import { View } from 'react-native';
 
 import Screen from '../../components/Screen/Screen';
 import ListItem from '../../components/ListItem/ListItem';
@@ -12,6 +12,7 @@ const currentUser = {
     pfp: require('../../assets/mosh.jpg'),
     name: 'Mosh Hamedani',
     email: 'programmingwithmosh@gmail.com',
+    messages: 'MessagesScreen',
 };
 
 const AccountScreen = ({ navigation }) => {
@@ -39,7 +40,7 @@ const AccountScreen = ({ navigation }) => {
                     iconColor={colors.white}
                     iconBackground={colors.secondary}
                     text="My Messages"
-                    onPress={() => navigation.navigate('MessagesScreen')}
+                    onPress={() => navigation.navigate(currentUser.messages)}
                 />
             </View>
 

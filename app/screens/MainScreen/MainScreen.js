@@ -33,11 +33,7 @@ const MainScreen = ({ navigation }) => {
                             subTitle={'$' + item.price}
                             image={item.image}
                             onPress={() =>
-                                navigation.navigate('ViewProductScreen', {
-                                    title: item.title,
-                                    subTitle: `$${item.price}`,
-                                    image: item.image,
-                                })
+                                navigation.navigate('ViewProductScreen', item)
                             }
                         />
                     );

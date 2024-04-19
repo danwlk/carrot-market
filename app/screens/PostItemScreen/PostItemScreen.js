@@ -94,10 +94,10 @@ const PostItemScreen = () => {
                     style={styles.postButton}
                 />
                 <Button
-                    title="back"
+                    title="reset"
                     color={colors.secondary}
                     textColor={colors.white}
-                    onPress={() => console.log('go to prev screen')}
+                    onPress={() => console.log('reset form')}
                     style={styles.backButton}
                 />
             </AppForm>

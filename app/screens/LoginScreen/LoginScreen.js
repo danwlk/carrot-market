@@ -61,6 +61,10 @@ const LoginScreen = ({ navigation }) => {
                     style={styles.registerButton}
                     onPress={() => navigation.replace('RegisterScreen')}
                 />
+                <Button
+                    title="temp"
+                    onPress={() => navigation.replace('abc')}
+                />
             </AppForm>
         </Screen>
     );
