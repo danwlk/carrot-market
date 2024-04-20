@@ -11,6 +11,7 @@ import {
 
 import styles from './LoginScreenStyles';
 import colors from '../../config/colors';
+import routes from '../../Nav/routes';
 
 const validationSchema = Yup.object().shape({
     email: Yup.string().required().email().label('Email'),
@@ -59,7 +60,7 @@ const LoginScreen = ({ navigation }) => {
                     color={colors.secondary}
                     textColor={colors.white}
                     style={styles.registerButton}
-                    onPress={() => navigation.replace('RegisterScreen')}
+                    onPress={() => navigation.replace(routes.REGISTER_SCREEN)}
                 />
                 <Button
                     title="temp"

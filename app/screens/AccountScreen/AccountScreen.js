@@ -7,12 +7,12 @@ import ButtonWithIcon from '../../components/ButtonWithIcon/ButtonWithIcon';
 
 import styles from './AccountScreenStyles';
 import colors from '../../config/colors';
+import routes from '../../Nav/routes';
 
 const currentUser = {
     pfp: require('../../assets/mosh.jpg'),
     name: 'Mosh Hamedani',
     email: 'programmingwithmosh@gmail.com',
-    messages: 'MessagesScreen',
 };
 
 const AccountScreen = ({ navigation }) => {
@@ -40,7 +40,7 @@ const AccountScreen = ({ navigation }) => {
                     iconColor={colors.white}
                     iconBackground={colors.secondary}
                     text="My Messages"
-                    onPress={() => navigation.navigate(currentUser.messages)}
+                    onPress={() => navigation.navigate(routes.MESSAGES_SCREEN)}
                 />
             </View>
 

@@ -1,4 +1,5 @@
 import { useLocation } from '../../hooks';
+import { useFormikContext } from 'formik';
 import * as Yup from 'yup';
 
 import {
@@ -38,6 +39,20 @@ const categories = [
     },
     { label: 'Other', icon: 'dropbox', color: '#7c8ca1', value: 9 },
 ];
+
+const ResetButton = () => {
+    const { resetForm } = useFormikContext();
+
+    return (
+        <Button
+            title="reset"
+            color={colors.secondary}
+            textColor={colors.white}
+            onPress={() => resetForm()}
+            style={styles.backButton}
+        />
+    );
+};
 
 const PostItemScreen = () => {
     const location = useLocation();
@@ -93,13 +108,7 @@ const PostItemScreen = () => {
                     textColor={colors.white}
                     style={styles.postButton}
                 />
-                <Button
-                    title="reset"
-                    color={colors.secondary}
-                    textColor={colors.white}
-                    onPress={() => console.log('reset form')}
-                    style={styles.backButton}
-                />
+                <ResetButton />
             </AppForm>
         </Screen>
     );

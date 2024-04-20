@@ -4,6 +4,7 @@ import Card from '../../components/Card/Card';
 import Screen from '../../components/Screen/Screen';
 
 import styles from './MainScreenStyles';
+import routes from '../../Nav/routes';
 
 const listings = [
     {
@@ -33,7 +34,7 @@ const MainScreen = ({ navigation }) => {
                             subTitle={'$' + item.price}
                             image={item.image}
                             onPress={() =>
-                                navigation.navigate('ViewProductScreen', item)
+                                navigation.navigate(routes.VIEW_PRODUCT_SCREEN, item)
                             }
                         />
                     );

@@ -10,6 +10,7 @@ import Button from '../../components/Button/Button';
 
 import styles from './RegisterScreenStyles';
 import colors from '../../config/colors';
+import routes from '../../Nav/routes';
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
@@ -82,7 +83,7 @@ const RegisterScreen = ({ navigation }) => {
                     color={colors.secondary}
                     textColor={colors.white}
                     style={styles.loginButton}
-                    onPress={() => navigation.replace('LoginScreen')}
+                    onPress={() => navigation.replace(routes.LOGIN_SCREEN)}
                 />
             </AppForm>
         </Screen>

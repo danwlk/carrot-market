@@ -8,6 +8,7 @@ const AppTextInput = ({
     icon,
     placeholder = 'Placeholder',
     width = '100%',
+    value = '',
     ...otherProps
 }) => {
     return (
@@ -24,6 +25,7 @@ const AppTextInput = ({
                 style={styles.textInput}
                 placeholder={placeholder}
                 placeholderTextColor={colors.medium}
+                value={value}
                 {...otherProps}
             />
         </View>

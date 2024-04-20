@@ -2,6 +2,7 @@ import { Image, ImageBackground, View, StatusBar } from 'react-native';
 
 import styles from './WelcomeScreenStyles';
 import colors from '../../config/colors';
+import routes from '../../Nav/routes';
 
 import AppText from '../../components/AppText/AppText';
 import Button from '../../components/Button/Button';
@@ -26,13 +27,13 @@ const WelcomeScreen = ({ navigation }) => {
                 title="login"
                 color={colors.primary}
                 style={styles.button}
-                onPress={() => navigation.navigate('LoginScreen')}
+                onPress={() => navigation.navigate(routes.LOGIN_SCREEN)}
             />
             <Button
                 title="register"
                 color={colors.secondary}
                 style={styles.button}
-                onPress={() => navigation.navigate('RegisterScreen')}
+                onPress={() => navigation.navigate(routes.REGISTER_SCREEN)}
             />
         </ImageBackground>
     );

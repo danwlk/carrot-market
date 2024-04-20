@@ -6,7 +6,7 @@ import * as Nav from './Nav/Nav';
 export default function App() {
     return (
         <NavigationContainer>
-            <Nav.AuthNavigator />
+            <Nav.TabNavigator />
         </NavigationContainer>
     );
 }
