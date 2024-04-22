@@ -9,4 +9,5 @@ export default function App() {
             <Nav.TabNavigator />
         </NavigationContainer>
     );
+    
 }
