@@ -1,29 +1,40 @@
+import { useEffect, useState } from 'react';
 import { FlatList, View } from 'react-native';
 
 import Card from '../../components/Card/Card';
 import Screen from '../../components/Screen/Screen';
+import AppText from '../../components/AppText/AppText';
+import Button from '../../components/Button/Button';
 
 import styles from './MainScreenStyles';
+import colors from '../../config/colors';
 import routes from '../../Nav/routes';
-
-const listings = [
-    {
-        id: 1,
-        title: 'Red Jacket for Sale',
-        price: 100,
-        image: require('../../assets/jacket.jpg'),
-    },
-    {
-        id: 2,
-        title: 'Couch in Great Condition',
-        price: 1000,
-        image: require('../../assets/couch.jpg'),
-    },
-];
+import listingsApi from '../../api/listings';
 
 const MainScreen = ({ navigation }) => {
+    const [listings, setListings] = useState([]);
+    const [error, setError] = useState(false);
+
+    const loadListings = async () => {
+        const response = await listingsApi.getListings();
+        if (!response.ok) return setError(true);
+
+        setError(false);
+        setListings(response.data);
+    };
+
+    useEffect(() => {
+        loadListings();
+    }, []);
+
     return (
         <Screen style={styles.screen}>
+            {error && (
+                <>
+                    <AppText>Couldn't retrieve listings!{"\n"}</AppText>
+                    <Button title="retry" onPress={loadListings} color={colors.primary} textColor={colors.white} />
+                </>
+            )}
             <FlatList
                 data={listings}
                 keyExtractor={(listing) => listing.id.toString()}
@@ -32,9 +43,12 @@ const MainScreen = ({ navigation }) => {
                         <Card
                             title={item.title}
                             subTitle={'$' + item.price}
-                            image={item.image}
+                            imageUri={item.images[0].url}
                             onPress={() =>
-                                navigation.navigate(routes.VIEW_PRODUCT_SCREEN, item)
+                                navigation.navigate(
+                                    routes.VIEW_PRODUCT_SCREEN,
+                                    item
+                                )
                             }
                         />
                     );
