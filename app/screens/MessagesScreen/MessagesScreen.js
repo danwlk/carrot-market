@@ -13,26 +13,26 @@ const initialMessages = [
         id: 1,
         name: 'Daniel Kim',
         conversation: 'hello',
-        image: require('../../assets/mosh.jpg'),
+        image: require('../../assets/images/mosh.jpg'),
     },
     {
         id: 2,
         name: 'Test Test',
         conversation:
             'Our ListItem and Card components look terrible if we give them long text. Long text should be truncated. To fix this, set the numberOfLines prop of the Text component.',
-        image: require('../../assets/mosh.jpg'),
+        image: require('../../assets/images/mosh.jpg'),
     },
     {
         id: 3,
         name: 'Joe Mama',
         conversation: 'Bro answer',
-        image: require('../../assets/mosh.jpg'),
+        image: require('../../assets/images/mosh.jpg'),
     },
     {
         id: 4,
         name: 'Mosh Hamedani',
         conversation: 'Bro answer',
-        image: require('../../assets/mosh.jpg'),
+        image: require('../../assets/images/mosh.jpg'),
     },
 ];
 
@@ -77,13 +77,13 @@ const MessagesScreen = () => {
                             id: 1,
                             name: 'Daniel Kim',
                             conversation: 'hello',
-                            image: require('../../assets/mosh.jpg'),
+                            image: require('../../assets/images/mosh.jpg'),
                         },
                         {
                             id: 2,
                             name: 'Test Test',
                             conversation: 'bruh answer',
-                            image: require('../../assets/mosh.jpg'),
+                            image: require('../../assets/images/mosh.jpg'),
                         },
                     ]);
                 }}

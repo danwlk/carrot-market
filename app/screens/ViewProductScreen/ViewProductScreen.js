@@ -17,7 +17,7 @@ const ViewProductScreen = ({ route }) => {
             </View>
 
             <ListItem
-                image={require('../../assets/mosh.jpg')}
+                image={require('../../assets/images/mosh.jpg')}
                 title="Mosh Hamedani"
                 subTitle="5 Listings"
                 showChevron

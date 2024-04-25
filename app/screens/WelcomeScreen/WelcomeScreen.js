@@ -10,14 +10,14 @@ import Button from '../../components/Button/Button';
 const WelcomeScreen = ({ navigation }) => {
     return (
         <ImageBackground
-            source={require('../../assets/background.jpg')}
+            source={require('../../assets/images/background.jpg')}
             style={styles.container}
             blurRadius={10}
         >
             <StatusBar barStyle={colors.black} />
             <View style={styles.logoContainer}>
                 <Image
-                    source={require('../../assets/logo.png')}
+                    source={require('../../assets/images/logo.png')}
                     style={styles.logoImg}
                 />
                 <AppText style={styles.text}>Sell What You Don't Need</AppText>
