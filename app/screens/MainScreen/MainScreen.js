@@ -32,12 +32,13 @@ const MainScreen = ({ navigation }) => {
 		<Screen style={styles.screen}>
 			{error && (
 				<>
-					<AppText>Couldn't retrieve listings!{"\n"}</AppText>
+					<AppText style={{ textAlign: "center" }}>
+						Couldn't retrieve listings!{"\n"}
+					</AppText>
 					<Button
 						title="retry"
 						onPress={() => {
 							loadListings();
-							setError(false);
 						}}
 						color={colors.primary}
 						textColor={colors.white}

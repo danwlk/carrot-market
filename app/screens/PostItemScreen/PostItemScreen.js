@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useLocation } from "../../hooks";
 import { useFormikContext } from "formik";
 import * as Yup from "yup";
@@ -14,6 +13,7 @@ import { Screen, Button } from "../../components";
 
 import styles from "./PostItemScreenStyles";
 import colors from "../../config/colors";
+import listingsApi from "../../api/listings";
 
 const validationSchema = Yup.object().shape({
 	title: Yup.string().required("Title is required"),
@@ -48,7 +48,7 @@ const ResetButton = () => {
 			title="reset"
 			color={colors.secondary}
 			textColor={colors.white}
-			onPress={() => resetForm()}
+			onPress={resetForm}
 			style={styles.backButton}
 		/>
 	);
@@ -56,6 +56,21 @@ const ResetButton = () => {
 
 const PostItemScreen = () => {
 	const location = useLocation();
+
+	const handleSubmit = async (listing) => {
+		console.log(listing.imageUris);
+		const result = await listingsApi.insertListing({
+			...listing,
+			location,
+		});
+
+		if (!result.ok) {
+			console.log(result);
+			alert("error");
+			return;
+		}
+		alert("Success");
+	};
 
 	return (
 		<Screen style={styles.screen}>
@@ -67,10 +82,7 @@ const PostItemScreen = () => {
 					description: "",
 					imageUris: [],
 				}}
-				onSubmit={() => {
-					setSubmitting(true);
-					setLoading(true);
-				}}
+				onSubmit={handleSubmit}
 				validationSchema={validationSchema}
 			>
 				<AppFormImageInputList
