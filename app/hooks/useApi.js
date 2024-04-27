@@ -8,7 +8,10 @@ const useApi = (apiFunc) => {
 	const request = async (...args) => {
 		setLoading(true);
 		const response = await apiFunc(...args);
-		setLoading(false);
+
+		setTimeout(() => {
+			setLoading(false);
+		}, 1000);
 
 		if (!response.ok) return setError(true);
 

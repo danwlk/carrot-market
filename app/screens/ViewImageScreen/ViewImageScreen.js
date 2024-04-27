@@ -8,7 +8,7 @@ const ViewImageScreen = () => {
     return (
         <View style={styles.container}>
             <Image
-                source={require('../../assets/images/chair.jpg')}
+                source={require('../../assets/images/my-pic.jpg')}
                 resizeMode="contain"
                 style={styles.chairImg}
             />

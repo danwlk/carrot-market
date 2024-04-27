@@ -7,12 +7,10 @@ const AppFormImageInputList = ({ name, style }) => {
 	const { values, setFieldValue, errors, touched } = useFormikContext();
 
 	const addImage = (uri) => {
-		console.log("Adding URI:", uri);
 		setFieldValue(name, [...values[name], uri]);
 	};
 
 	const removeImage = (uri) => {
-		console.log("Removing URI:", uri);
 		setFieldValue(
 			name,
 			values[name].filter((imgUri) => imgUri !== uri)

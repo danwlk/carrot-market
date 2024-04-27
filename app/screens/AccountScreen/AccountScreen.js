@@ -10,9 +10,9 @@ import colors from '../../config/colors';
 import routes from '../../Nav/routes';
 
 const currentUser = {
-    pfp: require('../../assets/images/mosh.jpg'),
+    pfp: require('../../assets/images/my-pic.jpg'),
     name: 'Mosh Hamedani',
-    email: 'programmingwithmosh@gmail.com',
+    email: 'd25kim@uwaterloo.ca',
 };
 
 const AccountScreen = ({ navigation }) => {

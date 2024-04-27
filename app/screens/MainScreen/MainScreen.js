@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FlatList, View } from "react-native";
 
 import {
@@ -72,6 +72,8 @@ const MainScreen = ({ navigation }) => {
 					ItemSeparatorComponent={
 						<View style={styles.cardSeparator} />
 					}
+					refreshing={loading}
+					onRefresh={() => loadListings()}
 				/>
 			)}
 		</Screen>

@@ -12,9 +12,8 @@ const insertListing = (listing) => {
 	data.append("categoryId", listing.category.value);
 	data.append("description", listing.description);
 	listing.imageUris.forEach((uri, index) => {
-		console.log(uri, index)
 		data.append("images", {
-			name: 'image' + index,
+			name: "image" + index,
 			type: "image/jpeg",
 			uri: uri,
 		});
@@ -24,7 +23,11 @@ const insertListing = (listing) => {
 	}
 
 	client.setHeader("Content-Type", "multipart/form-data");
-	return client.post(endpoint, data);
+	return client.post(endpoint, data, {
+		onUploadProgress: (progressEvent) => {
+			console.log(progressEvent.loaded);
+		},
+	});
 };
 
 export default {

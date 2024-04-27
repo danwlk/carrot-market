@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FlatList, StatusBar, View } from 'react-native';
+import { FlatList } from 'react-native';
 
 import ListItem from '../../components/ListItem/ListItem';
 import ListItemSeparator from '../../components/ListItem/ListItemSeparator';
@@ -13,32 +13,32 @@ const initialMessages = [
         id: 1,
         name: 'Daniel Kim',
         conversation: 'hello',
-        image: require('../../assets/images/mosh.jpg'),
+        image: require('../../assets/images/my-pic.jpg'),
     },
     {
         id: 2,
         name: 'Test Test',
         conversation:
             'Our ListItem and Card components look terrible if we give them long text. Long text should be truncated. To fix this, set the numberOfLines prop of the Text component.',
-        image: require('../../assets/images/mosh.jpg'),
+        image: require('../../assets/images/my-pic.jpg'),
     },
     {
         id: 3,
         name: 'Joe Mama',
         conversation: 'Bro answer',
-        image: require('../../assets/images/mosh.jpg'),
+        image: require('../../assets/images/my-pic.jpg'),
     },
     {
         id: 4,
-        name: 'Mosh Hamedani',
+        name: 'Bro',
         conversation: 'Bro answer',
-        image: require('../../assets/images/mosh.jpg'),
+        image: require('../../assets/images/my-pic.jpg'),
     },
 ];
 
 const MessagesScreen = () => {
     const [messages, setMessages] = useState(initialMessages);
-    const [refresing, setRefresing] = useState(false);
+    const [refreshing, setRefreshing] = useState(false);
 
     const handleDelete = (message) => {
         setMessages(
@@ -70,20 +70,20 @@ const MessagesScreen = () => {
                     />
                 )}
                 ItemSeparatorComponent={ListItemSeparator}
-                refreshing={refresing}
+                refreshing={refreshing}
                 onRefresh={() => {
                     setMessages([
                         {
                             id: 1,
                             name: 'Daniel Kim',
                             conversation: 'hello',
-                            image: require('../../assets/images/mosh.jpg'),
+                            image: require('../../assets/images/my-pic.jpg'),
                         },
                         {
                             id: 2,
                             name: 'Test Test',
                             conversation: 'bruh answer',
-                            image: require('../../assets/images/mosh.jpg'),
+                            image: require('../../assets/images/my-pic.jpg'),
                         },
                     ]);
                 }}

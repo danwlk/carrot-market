@@ -14,6 +14,7 @@ import { Screen, Button } from "../../components";
 import styles from "./PostItemScreenStyles";
 import colors from "../../config/colors";
 import listingsApi from "../../api/listings";
+import routes from "../../Nav/routes";
 
 const validationSchema = Yup.object().shape({
 	title: Yup.string().required("Title is required"),
@@ -54,22 +55,18 @@ const ResetButton = () => {
 	);
 };
 
-const PostItemScreen = () => {
+const PostItemScreen = ({ navigation }) => {
 	const location = useLocation();
 
 	const handleSubmit = async (listing) => {
-		console.log(listing.imageUris);
 		const result = await listingsApi.insertListing({
 			...listing,
 			location,
 		});
 
-		if (!result.ok) {
-			console.log(result);
-			alert("error");
-			return;
-		}
-		alert("Success");
+		if (!result.ok) return alert("error");
+
+		navigation.navigate(routes.POST_DONE_SCREEN);
 	};
 
 	return (
