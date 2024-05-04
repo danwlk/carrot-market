@@ -31,7 +31,6 @@ const AuthNavigator = () => (
 			name={routes.REGISTER_SCREEN}
 			component={RegisterScreen}
 		/>
-		<Stack.Screen name="abc" component={TabNavigator} />
 	</Stack.Navigator>
 );
 
